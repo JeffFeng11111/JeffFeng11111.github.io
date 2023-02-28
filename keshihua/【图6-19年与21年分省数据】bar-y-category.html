@@ -1,0 +1,87 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-y-category&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcya6GOAHmAQOQBMADAIwCcgLnqBwcndfc4CAqggO6DeboAbowN2egLS1ADqaB5xMpEAvgBoiYYMCyQQBVMQwAnCAHN9OHVQCGpCAGdKi7easAFYBGhhjmotrABPEPliUlgAWpgAmwADuMtqycrawuEbQoZoKRPp6KYTauABmFAEAzACkNp6wevpBBZQALKXx6ABGwGDKALZUJWXaAMYwYKYuADKmTThYBGA6AK44cUSkAIIWlh5evv6UAG6mWHM9xC0zyaY63gDiphqwANq08rC0AHQMALoL6N4rVuvEPn4qL1TG59MBzod0KEQaYCLdKIB0ZUANXKAID0bAFAJSagFJbNGPSiAZpsEbx0ZRAI46gH9I4l4wChioBMkMAJ8qAK8DAN02gC5lEmAXvjAIHaVIARIBIFUA6ea8XnyXmARbzAJn5gH0bEViwBQcoB3WxRot50sA80Fy3mATVtZarAJHagF79LWAeM9AF96WullNVpMAOHJa_GAdWUtYA1OyJqpdztVgH89e0-8mAO41APOmLNZqsVXrFgFnEwBheiqxYBttUAu7pawCssYA93S1gES5SO88mAedDQ6rAKpp1rFgAxXQDBAVrAErpiq1XMA8JqAPbUQ2zVYAG00AYa6AF79AHwqgBQdIsfdBpdCWYwQHBrO7lLTaWDQUztLZ0JjMSH_TZUJpnTdQmFwgDsADZCgBWE_yE-MRjUI_yTgADnotWo8iPhRP56f8iftXoI933oc8j3PWhGHkegOC_KCj1oTh33PWp_3PR8T1oS8H3oQoEKPehH0A180MYT9aF_egcNAh9qC_J9qF_QpoJQiin3owpsLY896Cvag-NqM8oM4E9alqKCnxPHioMKf8L0fI8JMYAicOoUjCigoiEPkWpCgAqDaHgqTRLfdSqJPYDGFoE8H2Qp9SPkEdiDHYh520JcVyoDguH3DBtwCXcdB86FBjhWpwNoB4Lwih56AYaLtNiiL5EKSyktPeLuPi794tU-KqPi9KksougkvPcKHhEvKoqK88SoeW94tI-KwoKxKYtwtK6qg2p4LS2oso6h5-tK1KHmoYaHifPLorGqaksc0ciA-WQAG4gA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.1/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.1/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+
+        tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  legend: {},
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    boundaryGap: [0, 0.01]
+  },
+  yAxis: {
+    type: 'category',
+    data: ['北京市', '天津市', '河北省', '山西省', '内蒙古自治区', '辽宁省',"吉林省","黑龙江省","上海市","江苏省","浙江省","安徽省","福建省","江西省","山东省","河南省","湖北省","湖南省","广东省","广西壮族自治区","海南省","重庆市","四川省","贵州省","云南省","西藏自治区","陕西省","甘肃省","青海省","宁夏回族自治区","新疆维吾尔自治区"]
+  },
+  series: [
+    {
+      name: '2019年',
+      type: 'bar',
+      data: [76356,69927,218142,73658,84172,157509,120236,170212,54845,260567,130271,217145,97308,113577,236828,312488,188237,188516,222463,121644,18616,138435,278691,132973,117102,4341,107016,44423,13562,19067,54897,]
+    },
+    {
+      name: '2021年',
+      type: 'bar',
+      data: [45000,35000,101000,41000,39000,76000,51000,65000,29000,135000,76000,112000,55000,64000,135000,152000,99000,97000,45000,71000,13000,72000,147000,74000,63000,4000,59000,24000,8000,10000,28000,]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

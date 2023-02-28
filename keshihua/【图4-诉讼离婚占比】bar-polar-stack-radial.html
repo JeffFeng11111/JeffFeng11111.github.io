@@ -1,0 +1,86 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-polar-stack-radial&code=PYBwLglsB2AEC8sDeAoWsCG0DmAbApgIIAeEAzgFzJrqxgCeI-VA5AMYZj7bABO9LADQ10AE04YqAbRYBGAJzyALENhzFAVlXr5ANm0L5AdgOKAHKcXaATAAZ7qgER3bsx4NjP71955cBmXy9bJSCXDTD7XUjbIxizGPlI2Vtktw8vWR8Mu1lAnNdQgtkI4ujiuOKE4qSCu0cAXRoAX2F0XgxRCABXMhJyKiRWmhBgXAxeQeH0MnxeCHxKWCkRalpaBiZWACMJoVWxCWl_DQA6DQ9_XVOzS_lTpQ8lR9gla90noxuns1P5Dw01m-sA0X38Hl0_xSSlOH1ksl-jyy91kglkSjORjRulRCNsp2sglyRLspyx1iUQPB1jMsnORPkmME_nRf2ZSl-H38Rnxj38tIJgiUITJzKM_lhDTa61gbGAfC60E4-AAyvQyFwALasUbjXj7GWwJWa5hqQCT0YAe6MA3Z6ALS1AA6mgAh_wDgcoBP7UAkP8GmUajBsADWrAwnvW-E1IAAFhgyAM1obYAAzYBsXqsWbzRYsA6wZqraa0VCGzamli7fXS9biMCSZa6IFY2C6X63WBGF5GM7_ZtAj6dh4eIxAx79wW6XmCXSPHFskenVE14cw2ftsfvZffXTXLENmdj34XXRff6Q07g_fD66HmGHs4n_H-KWZuUKiBKrhqjUhnVjPZl2jGouAbzdAAbo21HVdD0fxmSs_QDINaBDcNI2jfNYwTJMlhYVMFjIDNDWzdZc1gGh73QAhsHwaBREGVYyDDYAAHcqDAXhunwH8KyrGRLRA513W0IDuLAlgmnQbNmgAbiAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.1/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.1/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  angleAxis: {
+    type: 'category',
+    data: ['1994', '1995', '1996', '1997', '1998', '1999', '2000', "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"]
+  },
+  radiusAxis: {},
+  polar: {},
+  series: [
+    {
+      type: 'bar',
+      data: [35.5, 36.8, 39.4, 44, 46.6, 47.8, 48.9, 52.8, 57.3, 69,104.6,118.4,129.1,145.7,161,180.2,201,220.7,242.3,281.5,295.7,314.9,348.6,370.4,381.2,404.7,373.6],
+      coordinateSystem: 'polar',
+      name: '诉讼离婚数（万对）',
+      stack: 'a',
+      emphasis: {
+        focus: 'series'
+      }
+    },
+    {
+      type: 'bar',
+      data: [62.7, 68.8, 74, 75.9, 72.6, 72.4, 72.4,72.2,60.4,64,61.9,60.1,62.2,64.1,65.9,66.6,66.8,66.7,68.1,68.5,67.9,69.3,67.2,66.9,64.9,65.3,60.3],
+      coordinateSystem: 'polar',
+      name: '登记离婚数（万对）',
+      stack: 'a',
+      emphasis: {
+        focus: 'series'
+      }
+    },
+   
+  ],
+  legend: {
+    show: true,
+    data: ['诉讼离婚数（万对）', '登记离婚数（万对）']
+  }
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

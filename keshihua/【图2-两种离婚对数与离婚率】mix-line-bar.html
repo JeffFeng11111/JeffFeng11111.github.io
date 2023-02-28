@@ -1,0 +1,141 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=mix-line-bar&code=PYBwLglsB2AEC8sDeAoWszGAG0iAXMmuhgE4QDmFApqYQOQCGAHhAM70A0x6L7ACsAjQwtQqhIkwATxDUGAY1LA2HbpPRKVbAMozs8ohpIKcwOrHoBiAJx36PEgF9HL9E_UYs2AEbBm4o4AZtSMYACupIYSGgAmYYwAahDUAO7isGwAFsDpZOHUnLBRjLEA8tDY0oRBjNhs1LAejugAtowUEAoAKrLRmTl5YKQFRTJyhADa9NjC1FyWPoyk9AC6TZ6SUWyYURnZuYTDBRstmYwAbtQAgmwAku00-4NHI41uzsTN6AY00LGBSTxMCMKb0QAkSoBmxUAgAyAYBjAMeRgG7PQBaWoAHU0A84kLeiAbzdAA3RKIxWJRgHDnNZfTzMa6sNhTRwxSTjQz0BRhagUczSLhnYGg2CTABEAEYbAAOACs_M4QtFADZJdKRQB2eXCkUilWimwamwABm1gu1ACZtQBmbUAFm1EqlwpscptdmVDtF2q1UsNOs98o9OoN7s9xv9OrNQctQet_J99sjnqdMZ16qDbpjgr1_sFfpTgZTIZTYfoHsFYqxhZlJd9ivLgpFVZs5Y99cFa02JD4bEEwlEFnpGkZDGypVyDmMH3cxFWnmkVPYtMkPfQfcsFzqBS5xmgjFaTIJ6MAEP-AcDlAJ_agEh_tcaVrCQg6lttFiEc1i69nTu0ZfYQiPm-wNsAGUYPmod8jGMWAgnMdowC7BgkDfAonEsM5R1OOczkXehYPmL8Ny3BgSTPSQL2gK8v3aAJYDFL8X1IN8rwAOgos5f3_QDARAsDSAgqDLBgldqHgwAGAmHDQkI-CdiAachqBpPk6TObCmShOEkTRTEvzQpYVjU7w8FY4wMIAMXAsIuKCcJoAUSAYFgAAKDCAEpgJA4pqAiUg4Aw2AAGpLFgI96AAbjOMcRy_HlZxAh9aMVGxOEfeiZVikVaKLTgZTFWiRQSxV0sNGKRR1WjPU4EVDVomxzWK80yoS3UysFThRUKmLU3SsV6ozE1aMNQ1OAzGwopFXrhUKnrBQ9ZKKLGwUus4RVSp6mUCoqmUquva9FuSzh1qq-q0rK1KZVohKZUOwaTqi1Kkt2pKKJlRV9plfqTSKO6Ztgc6YveqrPr256Nue97-pFM5VlcFt51geSGDxHd8KkPoGA0uGF20iACEcjQDKMyCxFAsyLKgOBbN4hyIa2FzInc3ivJ8vzAqcpD3FChJwuMNato59muc5nnubFe7nrFUqzv6-rrwzJKKvFyLFV6jbmvymbC0KzhuoK2XDXNUrnsNEVpoo3L0tlk1BW-ooTXNJKEtgE1FSW829be80dSq43FU663DVN5KQbB2T103bdkVJNSEcsWZoEws4p2pO5_moMj6tQ1H0bJ2AsY44zcdM8zLKJ-yMeMKJXKp7ATm8-hYEE-mQMZ5C4hZvkCpi5ves26bRto57poqnu28m-i24S6bBpHtvmv26aJ5i0rxYy1XNtKgfbbb81h_oifFXajKDZV0rBR1ruF4S0qNfnm2VYvnqr_N2iKov-rYFn0HJFElAnH8oA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.1/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.1/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      crossStyle: {
+        color: '#999'
+      }
+    }
+  },
+  toolbox: {
+    feature: {
+      dataView: { show: true, readOnly: false },
+      magicType: { show: true, type: ['line', 'bar'] },
+      restore: { show: true },
+      saveAsImage: { show: true }
+    }
+  },
+  legend: {
+    data: ['判决、调解离婚数量', '登记离婚数量', '离婚率']
+  },
+  xAxis: [
+    {
+      type: 'category',
+      data: ["1985","1986","1987","1988","1989","1990","1991","1992","1993","1994","1995","1996","1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014",'2015', '2016', '2017', '2018', '2019', '2020', '2021'],
+      axisPointer: {
+        type: 'shadow'
+      }
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value',
+      name: '离婚数量（万对）',
+      min: 0,
+      max: 450,
+      interval: 50,
+      axisLabel: {
+        formatter: '{value} '
+      }
+    },
+    {
+      type: 'value',
+      name: '离婚率',
+      min: 0,
+      max: 5,
+      interval: 0.5,
+      axisLabel: {
+        formatter: '{value} ‰'
+      }
+    }
+  ],
+  series: [
+    {
+      name: '判决、调解离婚数量',
+      type: 'bar',
+      tooltip: {
+        valueFormatter: function (value) {
+          return value + ' 万对';
+        }
+      },
+      data: [
+        45.79,50.56,58.15,65.86,75.29,80.00,82.94,84.96,90.91,98.09,105.51,113.22,119.78,119.02,120.15,121.2,72.2,60.4,64.0,0,60.1,0,64.1,65.9,66.6,66.8,66.7,68.1,68.5,67.9,69.3, 67.2, 66.9, 64.9, 65.3,60.3, 69.8
+      ]
+    },
+    {
+      name: '登记离婚数量',
+      type: 'bar',
+      tooltip: {
+        valueFormatter: function (value) {
+          return value + ' 万对';
+        }
+      },
+      data: [
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,57.3,52.8,69.1,0,118.4,0,145.7,160.9,180.2,201.0,220.7,242.3,281.5,295.7,314.9, 348.6, 370.4, 381.2, 404.7,373.6, 214.1
+      ]
+    },
+    {
+      name: '离婚率',
+      type: 'line',
+      yAxisIndex: 1,
+      tooltip: {
+        valueFormatter: function (value) {
+          return value + ' ‰';
+        }
+      },
+      data: [0.9,0.9,1.1,1.2,1.3,1.4,1.4,1.5,1.5,1.6,1.8,1.8,1.9,1.9,1.9,1.9,2.0,1.8,2.1,2.5,1.37,1.46,1.59,1.71,1.85,2.0,2.13,2.3,2.6,2.7,2.8, 3.0, 3.2, 3.2, 3.4, 3.1, 2.0]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
